@@ -183,7 +183,7 @@
                     <div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col">
                         <div class="mb-5 text-center md:text-left">
                             <h3 class="text-xl font-bold mb-2 text-slate-800 flex items-center justify-center md:justify-start"><span class="w-1.5 h-5 bg-purple-500 rounded-full mr-2"></span>用品组：商品动态展示视频</h3>
-                            <p class="text-sm text-slate-500 leading-relaxed">为用品组制作了首支帽子动态展示视频，提升商品详情页转化力。后续将继续补充另外 2 支视频。</p>
+                            <p class="text-sm text-slate-500 leading-relaxed">为用品组制作了首支帽子动态展示视频，在订货会上更直观、生动地向客户展示商品质感与设计细节。后续将继续补充另外 2 支视频。</p>
                         </div>
                         <!-- 真实的 Video 标签 -->
                         <video src="assets/videos/accessories_hat.mp4" autoplay loop muted playsinline class="w-full max-w-3xl mx-auto aspect-video object-cover rounded-2xl shadow-md border border-slate-200 bg-black"></video>
@@ -263,8 +263,8 @@
                         </div>
                         
                         <!-- 核心互动区：手机外框 + 内部地图滚动 -->
-                        <div class="mt-auto relative w-full aspect-[18/9] sm:aspect-[21/9] flex items-center justify-center group mb-2">
-                            <div class="relative w-full max-w-4xl h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-xl border border-slate-200/50 bg-slate-50">
+                        <div class="mt-auto flex flex-col items-center justify-center w-full mb-2">
+                            <div class="relative w-full max-w-4xl aspect-[18/9] sm:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-xl border border-slate-200/50 bg-slate-50 group">
                                 <!-- 底层长地图 -->
                                 <div class="absolute inset-0 z-10 overflow-x-auto overflow-y-hidden no-scrollbar touch-pan-x cursor-grab active:cursor-grabbing">
                                     <img src="assets/images/binjiang_map.webp" class="h-full w-auto max-w-none object-left object-cover block" alt="滨江快闪店横向长图">
@@ -272,8 +272,9 @@
                                 <!-- 顶层手机框 -->
                                 <img src="assets/images/phone.png" class="absolute inset-0 w-full h-full object-fill z-20 pointer-events-none drop-shadow-sm" alt="手机横版外框">
                             </div>
-                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 bg-black/60 text-white text-xs px-4 py-2 rounded-full backdrop-blur-md pointer-events-none shadow-md opacity-80 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                                <i class="fa-solid fa-hand-point-left mr-1.5"></i> 在手机屏内左右滑动浏览长图 <i class="fa-solid fa-hand-point-right ml-1.5"></i>
+                            <!-- 移出手机框外的提示，不再遮挡 -->
+                            <div class="mt-5 text-slate-500 text-xs px-4 py-2 bg-slate-50 border border-slate-200 rounded-full shadow-sm">
+                                <i class="fa-solid fa-hand-point-left mr-1.5"></i> 请在上方手机屏内左右滑动浏览长图 <i class="fa-solid fa-hand-point-right ml-1.5"></i>
                             </div>
                         </div>
                     </div>
@@ -293,19 +294,27 @@
                         <!-- 视觉展示区 -->
                         <div class="w-full flex flex-col gap-4">
                             <!-- 顶部 16:9 横版宣传大图 -->
-                            <div class="w-full aspect-video rounded-xl overflow-hidden shadow-sm relative bg-slate-100 border border-slate-200 flex items-center justify-center">
-                                <img src="assets/images/minigame_banner.png" class="absolute inset-0 w-full h-full object-cover z-10" alt="宣传横图" onerror="this.style.display='none'">
+                            <div class="w-full aspect-video rounded-xl overflow-hidden shadow-sm relative bg-slate-100 border border-slate-200 flex items-center justify-center p-1">
+                                <img src="assets/images/minigame_banner.png" class="absolute inset-0 w-full h-full object-contain p-1 z-10" alt="宣传横图" onerror="this.style.display='none'">
                                 <div class="text-center text-slate-400 absolute z-0">
                                     <i class="fa-regular fa-image text-2xl mb-2"></i>
                                     <div class="text-xs font-mono">16:9 宣传大图 | minigame_banner.png</div>
                                 </div>
                             </div>
                             
-                            <!-- 底部 3 张竖屏游戏截图 (并列展示) -->
-                            <div class="grid grid-cols-3 gap-3 md:gap-6 mt-2">
+                            <!-- 底部 4 张竖屏游戏截图 (并列展示，改为完整包含显示) -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2">
+                                <!-- 截图 0 (原图: 做饭) -->
+                                <div class="aspect-[9/16] rounded-xl overflow-hidden shadow-sm relative bg-slate-100 border border-slate-200 flex items-center justify-center">
+                                    <img src="assets/images/minigame_shot.png" class="absolute inset-0 w-full h-full object-contain p-1 z-10" alt="游戏截图" onerror="this.style.display='none'">
+                                    <div class="text-center text-slate-400 absolute z-0 px-2">
+                                        <i class="fa-solid fa-mobile-screen text-xl mb-1"></i>
+                                        <div class="text-[9px] font-mono break-all">minigame_shot.png</div>
+                                    </div>
+                                </div>
                                 <!-- 截图 1 -->
                                 <div class="aspect-[9/16] rounded-xl overflow-hidden shadow-sm relative bg-slate-100 border border-slate-200 flex items-center justify-center">
-                                    <img src="assets/images/minigame_shot_01.png" class="absolute inset-0 w-full h-full object-cover z-10" alt="游戏截图1" onerror="this.style.display='none'">
+                                    <img src="assets/images/minigame_shot_01.png" class="absolute inset-0 w-full h-full object-contain p-1 z-10" alt="游戏截图1" onerror="this.style.display='none'">
                                     <div class="text-center text-slate-400 absolute z-0 px-2">
                                         <i class="fa-solid fa-mobile-screen text-xl mb-1"></i>
                                         <div class="text-[9px] font-mono break-all">minigame_shot_01.png</div>
@@ -313,7 +322,7 @@
                                 </div>
                                 <!-- 截图 2 -->
                                 <div class="aspect-[9/16] rounded-xl overflow-hidden shadow-sm relative bg-slate-100 border border-slate-200 flex items-center justify-center">
-                                    <img src="assets/images/minigame_shot_02.png" class="absolute inset-0 w-full h-full object-cover z-10" alt="游戏截图2" onerror="this.style.display='none'">
+                                    <img src="assets/images/minigame_shot_02.png" class="absolute inset-0 w-full h-full object-contain p-1 z-10" alt="游戏截图2" onerror="this.style.display='none'">
                                     <div class="text-center text-slate-400 absolute z-0 px-2">
                                         <i class="fa-solid fa-mobile-screen text-xl mb-1"></i>
                                         <div class="text-[9px] font-mono break-all">minigame_shot_02.png</div>
@@ -321,7 +330,7 @@
                                 </div>
                                 <!-- 截图 3 -->
                                 <div class="aspect-[9/16] rounded-xl overflow-hidden shadow-sm relative bg-slate-100 border border-slate-200 flex items-center justify-center">
-                                    <img src="assets/images/minigame_shot_03.png" class="absolute inset-0 w-full h-full object-cover z-10" alt="游戏截图3" onerror="this.style.display='none'">
+                                    <img src="assets/images/minigame_shot_03.png" class="absolute inset-0 w-full h-full object-contain p-1 z-10" alt="游戏截图3" onerror="this.style.display='none'">
                                     <div class="text-center text-slate-400 absolute z-0 px-2">
                                         <i class="fa-solid fa-mobile-screen text-xl mb-1"></i>
                                         <div class="text-[9px] font-mono break-all">minigame_shot_03.png</div>
@@ -382,7 +391,8 @@
                 slidesPerView: 'auto',   
                 centeredSlides: true,    
                 spaceBetween: 16,        
-                loop: true,              
+                loop: true,
+                loopedSlides: 8,         // 强制复制足够数量的幻灯片，解决两边不对称问题
                 grabCursor: true,        
                 mousewheel: {
                     forceToAxis: true,   // 允许电脑端鼠标滚轮横向滚动
@@ -399,6 +409,7 @@
                 centeredSlides: true,
                 spaceBetween: 16,
                 loop: true,
+                loopedSlides: 8,         // 强制复制足够数量的幻灯片，解决两边不对称问题
                 grabCursor: true,
                 mousewheel: {
                     forceToAxis: true,
