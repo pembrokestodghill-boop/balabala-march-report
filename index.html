@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巴拉巴拉AI创意设计团队 - 3月月度汇报</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Swiper CSS (用于科技感层叠滑动效果) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f4f7fb;
+            color: #334155;
+            /* 浅色科技感点状背景 */
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* 毛玻璃卡片风格 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 10px 40px -10px rgba(148, 163, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(148, 163, 184, 0.3);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .media-placeholder {
+            background: #f8fafc;
+            border: 2px dashed #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .media-placeholder:hover {
+            border-color: #38bdf8;
+            background: #f0f9ff;
+        }
+
+        /* --- 科技感层叠滑动 (Swiper) 定制样式 --- */
+        .tech-swiper {
+            width: 100%;
+            padding: 10px 0 20px 0; /* 为缩放阴影预留空间 */
+            overflow: hidden;
+        }
+        
+        .tech-swiper .swiper-slide {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.3; /* 两侧图片半透明 */
+            transform: scale(0.85); /* 两侧图片缩小 */
+            border-radius: 0.75rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 中间激活的主图样式 */
+        .tech-swiper .swiper-slide-active {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 12px 25px -5px rgba(56, 189, 248, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            background: #fff;
+        }
+
+        /* 自定义幻灯片宽度，确保两侧能露出一点点 */
+        .ghost-slide { width: 75%; aspect-ratio: 16/9; }
+        .home-slide { width: 50%; aspect-ratio: 3/4; }
+
+        @media (min-width: 768px) {
+            .ghost-slide { width: 80%; }
+            .home-slide { width: 45%; }
+        }
+
+        /* 呼吸光效强调词 */
+        .highlight-glow {
+            position: relative;
+            display: inline-block;
+        }
+        .highlight-glow::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 30%;
+            background: rgba(56, 189, 248, 0.3);
+            z-index: -1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-10 px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-6xl mx-auto space-y-10 relative z-10">
+        
+        <!-- 页头 -->
+        <header class="glass-card rounded-2xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight mb-2 text-gradient">3月 AI创新与应用月度汇报</h1>
+                <p class="text-slate-500 font-medium">涵盖巴拉智绘系统建设、3D/AI视觉赋能及互动营销落地</p>
+            </div>
+            <div class="mt-4 md:mt-0 px-5 py-2.5 bg-blue-50 text-blue-600 rounded-lg font-bold border border-blue-100 flex items-center shadow-sm">
+                <i class="fa-solid fa-layer-group mr-2"></i> 巴拉巴拉AI创意设计团队
+            </div>
+        </header>
+
+        <main class="space-y-10">
+            
+            <!-- 板块 1：核心基建 - 巴拉智绘 -->
+            <section>
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mr-4 shadow-sm border border-blue-200">
+                        <i class="fa-solid fa-microchip text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 tracking-wide">一、 核心基建：巴拉智绘 <span class="text-blue-500/80 text-lg font-medium tracking-normal">(Agent)</span> 正式启动</h2>
+                </div>
+                
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row">
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center border-b md:border-b-0 md:border-r border-slate-100">
+                        <h3 class="text-xl font-bold mb-4 text-slate-800">平台立项与研发推进</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed text-sm">
+                            本月，AI 辅助服装设计与资产聚合平台<strong class="text-blue-600 mx-1 highlight-glow">「巴拉智绘」</strong>正式启动研发。系统将重塑现有设计与生产流，实现从“灵感”到“成衣效果”的全面跃升。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start bg-slate-50/50 p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-colors">
+                                <i class="fa-solid fa-bolt text-amber-500 mt-0.5 mr-3 text-lg"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-700 text-sm mb-1">极速增效：线稿即成衣</h4>
+                                    <p class="text-xs text-slate-500">单款设计周期将从传统的 <span class="text-rose-500 font-bold">2周</span> 压缩至 <span class="text-emerald-500 font-bold">10-30分钟</span>。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start bg-slate-50/50 p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-colors">
+                                <i class="fa-solid fa-database text-blue-500 mt-0.5 mr-3 text-lg"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-700 text-sm mb-1">资产盘活：沉睡数据数字化</h4>
+                                    <p class="text-xs text-slate-500">供应链 <span class="text-blue-600 font-bold">5TB</span> 的静态面料、版型数据将转化为支持自然语言语义检索的“活资产”。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start bg-slate-50/50 p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-colors">
+                                <i class="fa-solid fa-chart-line text-emerald-500 mt-0.5 mr-3 text-lg"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-700 text-sm mb-1">显著降本：释放隐性人力</h4>
+                                    <p class="text-xs text-slate-500">预计规避实体打样返工损耗并替代外部高价SaaS，等效扩编30%以上设计产能。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 预留位：智绘系统界面或演示视频 -->
+                    <div class="md:w-1/2 p-6 md:p-8 bg-slate-50 flex items-center justify-center">
+                        <div class="w-full aspect-video rounded-xl media-placeholder flex flex-col items-center justify-center text-slate-400 group cursor-pointer relative overflow-hidden">
+                            <i class="fa-solid fa-laptop-code text-4xl mb-3 text-slate-300 group-hover:text-blue-500 group-hover:scale-110 transition-all"></i>
+                            <span class="font-medium text-slate-500 group-hover:text-blue-600 transition-colors relative z-10">预留位：系统演示视频/架构图</span>
+                            <span class="text-xs mt-2 text-slate-400 font-mono relative z-10">16:9 | zhihui_demo.mp4 (或 .png)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 板块 2：3D与AI视觉赋能 -->
+            <section>
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mr-4 shadow-sm border border-purple-200">
+                        <i class="fa-solid fa-cube text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 tracking-wide">二、 业务赋能：3D与视觉创新落地</h2>
+                </div>
+
+                <!-- 2x2 网格排版 -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- 1. 动态视频输出 -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col h-full">
+                        <div class="mb-5">
+                            <h3 class="text-lg font-bold mb-2 text-slate-800 flex items-center"><span class="w-1.5 h-4 bg-purple-500 rounded-full mr-2"></span>用品组：商品动态展示视频</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">为用品组制作了首支帽子动态展示视频，提升商品详情页转化力。后续将继续补充另外 2 支视频。</p>
+                        </div>
+                        <div class="mt-auto w-full aspect-video rounded-xl media-placeholder flex flex-col items-center justify-center text-slate-400 group cursor-pointer relative overflow-hidden">
+                            <i class="fa-solid fa-video text-3xl mb-3 text-slate-300 group-hover:text-purple-500 transition-colors"></i>
+                            <span class="font-medium text-sm text-slate-500 group-hover:text-purple-600 relative z-10">预留位：帽子展示视频</span>
+                            <span class="text-xs mt-1 text-slate-400 font-mono relative z-10">16:9 | accessories_hat.mp4</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Ghost Model (多图滑动景深效果) -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col h-full overflow-hidden">
+                        <div class="mb-2 relative z-10">
+                            <h3 class="text-lg font-bold mb-2 text-slate-800 flex items-center"><span class="w-1.5 h-4 bg-purple-500 rounded-full mr-2"></span>用品组：Ghost Model 3D试拍</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">尝试引入 3D 效果的 Ghost Model（隐形模特）拍摄技术，以替代传统平面拍摄，提供更立体真实的质感。</p>
+                        </div>
+                        
+                        <!-- 科技感 Swiper 容器 -->
+                        <div class="swiper tech-swiper ghost-swiper mt-auto">
+                            <div class="swiper-wrapper" id="ghost-wrapper">
+                                <!-- JS 将在这里循环生成 8 张图 -->
+                            </div>
+                        </div>
+                        <div class="text-center w-full text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-left-right mr-1"></i> 拖拽滑动查看完整 8 张图</div>
+                    </div>
+
+                    <!-- 3. Home 产品线模拟 (多图滑动景深效果) -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col h-full overflow-hidden">
+                        <div class="mb-2 relative z-10">
+                            <h3 class="text-lg font-bold mb-2 text-slate-800 flex items-center"><span class="w-1.5 h-4 bg-purple-500 rounded-full mr-2"></span>Home线：袜子与吊牌物理模拟</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">为 Home 产品线完成了袜子及配套吊牌的高保真物理模拟打样，减少实物打样成本。</p>
+                        </div>
+                        
+                        <!-- 科技感 Swiper 容器 -->
+                        <div class="swiper tech-swiper home-swiper mt-auto">
+                            <div class="swiper-wrapper" id="home-wrapper">
+                                <!-- JS 将在这里循环生成 25 张图 -->
+                            </div>
+                        </div>
+                        <div class="text-center w-full text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-left-right mr-1"></i> 拖拽滑动查看完整 25 张图</div>
+                    </div>
+
+                    <!-- 4. 面料组：软软牛仔宣传视频 -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col h-full">
+                        <div class="mb-5">
+                            <h3 class="text-lg font-bold text-slate-800 flex items-center"><span class="w-1.5 h-4 bg-purple-500 rounded-full mr-2"></span>面料组：软软牛仔宣传视频</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">为面料组专项制作的“软软牛仔”系列短视频，适用于小红书、抖音等竖屏社交媒体渠道传播展示。</p>
+                        </div>
+                        <!-- 9:16 竖屏视频居中排版 -->
+                        <div class="mt-auto w-full max-w-[220px] mx-auto aspect-[9/16] rounded-xl media-placeholder flex flex-col items-center justify-center text-slate-400 group cursor-pointer relative overflow-hidden">
+                            <i class="fa-solid fa-video text-3xl mb-3 text-slate-300 group-hover:text-purple-500 transition-colors"></i>
+                            <span class="font-medium text-sm text-slate-500 group-hover:text-purple-600 relative z-10 text-center">预留位：软软牛仔视频</span>
+                            <span class="text-[10px] mt-1 text-slate-400 font-mono relative z-10">9:16 | soft_denim.mp4</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 板块 3：品牌互动与营销 -->
+            <section>
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center mr-4 shadow-sm border border-pink-200">
+                        <i class="fa-solid fa-mobile-screen-button text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 tracking-wide">三、 互动营销：品牌资产线上化</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- 滨江快闪店地图 -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col h-full">
+                        <div class="mb-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-slate-800 flex items-center"><span class="w-1.5 h-4 bg-pink-500 rounded-full mr-2"></span>滨江快闪店交互地图</h3>
+                                <span class="px-2 py-1 bg-emerald-50 text-emerald-600 border border-emerald-200 text-[10px] uppercase font-bold tracking-wider rounded">已上线</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed">响应品牌形象部需求，为滨江线下快闪店量身定制了线上交互地图，打通线上引流与线下导览闭环。</p>
+                        </div>
+                        <div class="mt-auto w-full aspect-video rounded-xl media-placeholder flex flex-col items-center justify-center text-slate-400 group cursor-pointer relative overflow-hidden">
+                            <i class="fa-solid fa-map-location-dot text-3xl mb-3 text-slate-300 group-hover:text-pink-500 transition-colors"></i>
+                            <span class="font-medium text-sm text-slate-500 group-hover:text-pink-600 relative z-10">预留位：快闪店地图交互</span>
+                            <span class="text-xs mt-1 text-slate-400 font-mono relative z-10">16:9 | binjiang_map.png (或 .mp4)</span>
+                        </div>
+                    </div>
+
+                    <!-- IP 小程序游戏 -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col h-full">
+                        <!-- 头部：Logo与标题 -->
+                        <div class="flex items-start gap-4 mb-3">
+                            <!-- 游戏 Logo (1:1) -->
+                            <div class="w-14 h-14 rounded-2xl media-placeholder flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+                                <i class="fa-solid fa-paw text-slate-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-1">巴拉巴拉 IP 微信小游戏</h3>
+                                <span class="px-2 py-1 bg-amber-50 text-amber-600 border border-amber-200 text-[10px] uppercase font-bold tracking-wider rounded inline-flex items-center"><i class="fa-solid fa-spinner fa-spin mr-1.5"></i>备案审核中</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-xs text-slate-500 leading-relaxed mb-4">基于核心 IP 形象开发专属微信小游戏，目前研发与内测已完成，正处于国家有关部门的小游戏备案审核阶段。</p>
+                        
+                        <!-- 底侧：两张配图 (左横图 16:9，右竖图) -->
+                        <div class="mt-auto flex gap-3 w-full">
+                            <!-- 16:9 宣传横图 -->
+                            <div class="flex-1 aspect-video rounded-xl media-placeholder flex flex-col items-center justify-center text-slate-400 group cursor-pointer relative overflow-hidden">
+                                <i class="fa-regular fa-image text-2xl mb-2 text-slate-300 group-hover:text-pink-500 transition-colors"></i>
+                                <span class="font-medium text-xs text-slate-500 group-hover:text-pink-600 relative z-10">宣传横图</span>
+                                <span class="text-[9px] mt-1 text-slate-400 font-mono relative z-10">16:9 | minigame_banner.png</span>
+                            </div>
+                            
+                            <!-- 竖屏游戏截图 -->
+                            <div class="w-[35%] aspect-[9/16] rounded-xl media-placeholder flex flex-col items-center justify-center text-slate-400 group cursor-pointer relative overflow-hidden">
+                                <i class="fa-solid fa-mobile-screen text-2xl mb-2 text-slate-300 group-hover:text-pink-500 transition-colors"></i>
+                                <span class="font-medium text-xs text-slate-500 group-hover:text-pink-600 relative z-10">游戏截图</span>
+                                <span class="text-[9px] mt-1 text-slate-400 font-mono relative z-10">竖屏 | minigame_shot.png</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center text-slate-400 text-sm py-8 mt-12">
+            <p class="flex items-center justify-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-blue-400"></i>
+                巴拉巴拉AI创意设计团队 制
+            </p>
+        </footer>
+    </div>
+
+    <!-- Swiper JS 脚本注入 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // 1. 生成 Ghost Model 8张占位图
+        const ghostWrapper = document.getElementById('ghost-wrapper');
+        for(let i=1; i<=8; i++) {
+            let num = i.toString().padStart(2, '0');
+            ghostWrapper.innerHTML += `
+            <div class="swiper-slide ghost-slide media-placeholder">
+                <i class="fa-regular fa-image text-3xl mb-2 text-slate-300"></i>
+                <span class="font-medium text-sm text-slate-500">Ghost Model 图 ${num}</span>
+                <span class="text-[10px] mt-1 font-mono">ghost_model_${num}.png</span>
+            </div>`;
+        }
+
+        // 2. 生成 Home 线 25张占位图
+        const homeWrapper = document.getElementById('home-wrapper');
+        for(let i=1; i<=25; i++) {
+            let num = i.toString().padStart(2, '0');
+            homeWrapper.innerHTML += `
+            <div class="swiper-slide home-slide media-placeholder">
+                <i class="fa-solid fa-socks text-3xl mb-2 text-slate-300"></i>
+                <span class="font-medium text-sm text-slate-500">模拟图 ${num}</span>
+                <span class="text-[10px] mt-1 font-mono">home_sim_${num}.png</span>
+            </div>`;
+        }
+
+        // 3. 初始化 Swiper 滑动组件
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ghost Model 轮播
+            new Swiper('.ghost-swiper', {
+                slidesPerView: 'auto',   // 自动根据 CSS 宽度判断露出多少
+                centeredSlides: true,    // 居中展示当前图片
+                spaceBetween: 16,        // 图片间距
+                loop: true,              // 循环滑动
+                grabCursor: true         // 鼠标悬浮抓取手势
+            });
+
+            // Home 线轮播
+            new Swiper('.home-swiper', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 16,
+                loop: true,
+                grabCursor: true
+            });
+        });
+    </script>
+</body>
+</html>
