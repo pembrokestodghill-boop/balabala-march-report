@@ -264,13 +264,18 @@
                         
                         <!-- 核心互动区：手机外框 + 内部地图滚动 -->
                         <div class="mt-auto flex flex-col items-center justify-center w-full mb-2">
-                            <div class="relative w-full max-w-4xl aspect-[18/9] sm:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-xl border border-slate-200/50 bg-slate-50 group">
+                            <!-- 移除了强制的 aspect-ratio，让 phone.png 的真实比例来撑开容器 -->
+                            <div class="relative w-full max-w-4xl rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-xl border border-slate-200/50 bg-slate-50 group flex items-center justify-center">
+                                
+                                <!-- 顶层手机框 (relative, h-auto 撑开高度，保证完美比例) -->
+                                <img src="assets/images/phone.png" class="relative z-20 w-full h-auto pointer-events-none drop-shadow-sm" alt="手机横版外框">
+
                                 <!-- 底层长地图 -->
-                                <div class="absolute inset-0 z-10 overflow-x-auto overflow-y-hidden no-scrollbar touch-pan-x cursor-grab active:cursor-grabbing">
-                                    <img src="assets/images/binjiang_map.webp" class="h-full w-auto max-w-none object-left object-cover block" alt="滨江快闪店横向长图">
+                                <div class="absolute inset-0 z-10 overflow-x-auto overflow-y-hidden no-scrollbar touch-pan-x cursor-grab active:cursor-grabbing flex items-center">
+                                    <!-- 强制高度 1060px，并通过 max-height: 98.7% 保证等比缩放时不被外框上下遮挡 -->
+                                    <img src="assets/images/binjiang_map.webp" style="height: 1060px; max-height: 98.7%;" class="w-auto max-w-none block shrink-0" alt="滨江快闪店横向长图">
                                 </div>
-                                <!-- 顶层手机框 -->
-                                <img src="assets/images/phone.png" class="absolute inset-0 w-full h-full object-fill z-20 pointer-events-none drop-shadow-sm" alt="手机横版外框">
+                                
                             </div>
                             <!-- 移出手机框外的提示，不再遮挡 -->
                             <div class="mt-5 text-slate-500 text-xs px-4 py-2 bg-slate-50 border border-slate-200 rounded-full shadow-sm">
@@ -289,7 +294,7 @@
                                 <span class="px-2 py-1 bg-amber-50 text-amber-600 border border-amber-200 text-xs font-bold rounded inline-flex items-center"><i class="fa-solid fa-spinner fa-spin mr-1.5"></i>备案审核中</span>
                             </div>
                         </div>
-                        <p class="text-sm text-slate-500 leading-relaxed mb-6">基于核心 IP 形象开发专属微信小游戏，目前研发与内测已完成，正处于国家有关部门的小游戏备案审核阶段，后续将不断更新优化。</p>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">基于核心 IP 形象开发专属微信小游戏，目前研发与内测已完成，正处于国家有关部门的小游戏备案审核阶段。</p>
                         
                         <!-- 视觉展示区 -->
                         <div class="w-full flex flex-col gap-4">
